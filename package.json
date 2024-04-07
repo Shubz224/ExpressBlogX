@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-"dev":"nodemon index.js",
-"start": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Shubham Nikam",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.3.0"
   }
 }
