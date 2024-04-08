@@ -22,7 +22,14 @@ try {
     error:"Incorrect Email or password",
   });
 }
-})
+});
+
+//logout route 
+
+router.get('/logout',(req,res)=>{
+   res.clearCookie("token").redirect("/")
+});
+
 
 router.post("/signup", async (req, res) => {
   const { fullName, email, password } = req.body;
