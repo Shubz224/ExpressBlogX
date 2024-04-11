@@ -1,7 +1,8 @@
 import express from "express";
 import path from "path";
 import Userroute from "./routes/user.js";
-import {checkAuthenticationCookie} from "./middlewares/authentication.js"
+import blogroute from "./routes/blog.js";
+import { checkAuthenticationCookie } from "./middlewares/authentication.js";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 
@@ -17,6 +18,7 @@ mongoose
 //using routes
 app.use(express.urlencoded({ extended: false }));
 app.use("/user", Userroute);
+app.use("/blog", blogroute);
 app.use(cookieParser());
 app.use(checkAuthenticationCookie("token"));
 //setting up engine
