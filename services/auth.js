@@ -7,6 +7,7 @@ export function createtokenforuser( user){
         _id :user._id,
         emial:user.email,
         profileImageURL :user.profileImageURL,
+        role:user.role,
     };
 
     const token = jwt.sign(payload,secret);
