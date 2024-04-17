@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
-const blogSchema = mongoose.Schema({
+const blogSchema =  new Schema({
     title:{
         type:String,
         required :true,
@@ -19,9 +19,11 @@ const blogSchema = mongoose.Schema({
             ref : 'user',
     },
 
-},{timestamp:true});
+},
+{timestamp:true}
+);
 
 
-const Blog = model('blog',blogSchema);
+const Blog = mongoose.model('blog',blogSchema);
 
 export default Blog;
