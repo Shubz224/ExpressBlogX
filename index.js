@@ -5,9 +5,9 @@ import blogroute from "./routes/blog.js";
 import { checkAuthenticationCookie } from "./middlewares/authentication.js";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-
+import Blog from "./models/blog.js";
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 //connection db
 
@@ -25,9 +25,11 @@ app.use(checkAuthenticationCookie("token"));
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const allBlogs = await Blog.find({});
   res.render("home", {
     user: req.user,
+    blogs: allBlogs,
   });
 });
 

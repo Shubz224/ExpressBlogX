@@ -1,10 +1,10 @@
-import mongoose, { model } from "mongoose";
+import mongoose, { Schema } from "mongoose"
 
 import  {createHmac , randomBytes} from "crypto"
 
 import {createtokenforuser} from "../services/auth.js"
 
- const UserSchema  =  mongoose.Schema({
+ const UserSchema  =   new Schema({
     fullName:{
         type:String,
         required:true,
@@ -81,6 +81,6 @@ UserSchema.static(
 
 });
 
-const User = model('user',UserSchema);
+const User = mongoose.model('user',UserSchema);
 
 export default User;
